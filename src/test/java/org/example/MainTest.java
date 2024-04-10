@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
+import static org.example.Main.AVGWeekTemperature;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MainTest {
@@ -34,5 +35,29 @@ class MainTest {
 
         assertThrows(IllegalArgumentException.class, Main::GetTemperature);
 
+    }
+
+    @Test
+    void TemperaturesNotInformedShouldReturnError() {
+        int[] temp = {};
+        assertThrows(IllegalArgumentException.class, () -> {
+            AVGWeekTemperature(temp);
+        });
+    }
+
+    @Test
+    void NumberOfTemperaturesEnteredLessThan7ShouldReturnError() {
+        int[] temp = {1, 1, 1};
+        assertThrows(IllegalArgumentException.class, () -> {
+            AVGWeekTemperature(temp);
+        });
+    }
+
+    @Test
+    void NumberOfTemperaturesEnteredBiggerThan7ShouldReturnError() {
+        int[] temp = {1, 1, 1, 1, 1, 1, 1 ,1};
+        assertThrows(IllegalArgumentException.class, () -> {
+            AVGWeekTemperature(temp);
+        });
     }
 }
