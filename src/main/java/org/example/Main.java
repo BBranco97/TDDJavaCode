@@ -43,4 +43,14 @@ public class Main {
         }
         return sum / 7.0;
     }
+
+    public static int DaysAboveAVG(int[] temp, double avg) {
+        int aboveAvg = 0;
+        for (int t : temp) {
+            if (t > avg) {
+                aboveAvg++;
+            }
+        }
+        return aboveAvg;
+    }
 }
