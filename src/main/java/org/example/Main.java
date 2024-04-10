@@ -9,9 +9,9 @@ public class Main {
         int[] temp = new int[7];
         temp = GetTemperature();
         double avg = AVGWeekTemperature(temp);
-//        int aboveAvg = DaysAboveAVG(temp, avg);
+        int aboveAvg = DaysAboveAVG(temp, avg);
 
-//        System.out.println("Dias com temperatura acima da média: " + aboveAvg);
+        System.out.println("Dias com temperatura acima da média: " + aboveAvg);
     }
 
     public static int[] GetTemperature() {
@@ -24,7 +24,7 @@ public class Main {
                 temp[i] = scanner.nextInt();
             } else {
                 System.out.println("Erro");
-                throw new IllegalArgumentException("O array contém um elemento que não é do tipo inteiro.");
+                throw new IllegalArgumentException("O array contém um elemento que não é do tipo inteiro");
             }
         }
 
