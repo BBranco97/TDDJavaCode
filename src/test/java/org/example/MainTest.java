@@ -6,6 +6,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
 import static org.example.Main.AVGWeekTemperature;
+import static org.example.Main.DaysAboveAVG;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MainTest {
@@ -59,5 +60,21 @@ class MainTest {
         assertThrows(IllegalArgumentException.class, () -> {
             AVGWeekTemperature(temp);
         });
+    }
+
+    @Test
+    void DaysWithSameTemperatureShouldReturnZeroDaysAboveAVG(){
+        int[] temp = {0, 0, 0, 0, 0, 0, 0};
+        double avg = AVGWeekTemperature(temp);
+        int days = 0;
+        assertEquals(DaysAboveAVG(temp,avg),days);
+    }
+
+    @Test
+    void DaysWithDifferentTemperatureShouldReturnDaysAboveAVG(){
+        int[] temp = {1, 2, 3, 0, 5, 6, -7};
+        double avg = AVGWeekTemperature(temp);
+        int days = 4;
+        assertEquals(DaysAboveAVG(temp,avg),days);
     }
 }
