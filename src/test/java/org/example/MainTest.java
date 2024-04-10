@@ -22,4 +22,15 @@ class MainTest {
         assertArrayEquals(temperatures, returnedTemperatures);
     }
 
+    @Test
+    void TemperatureWithInvalidInputShouldReturnError() {
+        String input = "1 2 3 A 5 6 7";
+
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        assertThrows(IllegalArgumentException.class, Main::GetTemperature);
+
+    }
+
 }
