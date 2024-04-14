@@ -22,7 +22,6 @@ class MainTest {
         String input = "1 2 3 4 5 6 7";
 
         setSystemInput(input);
-
         int[] returnedTemperatures = Main.GetTemperature();
 
         assertArrayEquals(temperatures, returnedTemperatures);
@@ -44,6 +43,14 @@ class MainTest {
         assertThrows(IllegalArgumentException.class, () -> {
             AVGWeekTemperature(temp);
         });
+    }
+
+    @Test
+    void ShouldCalculateAVGTemperatures() {
+        int[] temp = {1, 2, 3, 0, -3, -2, -1};
+        double avg = AVGWeekTemperature(temp);
+        int average = 0;
+        assertEquals(AVGWeekTemperature(temp),average);
     }
 
     @Test
